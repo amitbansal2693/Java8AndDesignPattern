@@ -1,0 +1,166 @@
+# TestJava Practice Project
+
+This repository is a Java learning and practice workspace focused on core Java, Java 8 streams, collection handling, access modifiers, recursion, and basic design pattern exercises.
+
+## 1) What this project contains
+
+- Multiple small, self-contained Java classes for concept-by-concept practice.
+- Hands-on examples for map/filter/reduce/grouping/partitioning in streams.
+- OOP basics: constructors, encapsulation, access modifiers (`public`, `protected`, package-private, `private`).
+- Pattern basics: singleton examples (`EagerSingleton`, pattern package placeholders).
+- Utility/problem-solving exercises: bracket matching, odd occurrence with XOR, recursion, map sorting, and tree printing.
+
+## 2) High-level practice areas
+
+- Java fundamentals
+  - Class structure, constructors, fields, methods
+  - Access modifiers and package behavior
+  - Method overloading and `final`
+- Collections and generics
+  - `List`, `Map`, `Set`, raw types vs typed collections
+  - `Map.Entry` sorting by key/value
+- Java 8 streams
+  - `map`, `flatMap`, `filter`, `distinct`, `sorted`
+  - `collect`, `groupingBy`, `partitioningBy`, `counting`
+  - `reduce`, `findFirst`, `max`, `min`, frequency maps
+- Algorithmic practice
+  - Stack-based parenthesis validation
+  - XOR trick for odd-occurrence element
+  - Recursive and iterative summation patterns
+- Data formatting/utility scripting
+  - Large string parsing and formatting for bulk output generation
+
+## 3) Folder structure
+
+```text
+TestJava/
+├── TestJava.iml
+└── src/
+    ├── EagerSingleton.java
+    ├── Main.java
+    ├── SortCities.java
+    └── com/
+        ├── hybrs/
+        │   ├── Bank.java
+        │   ├── GenericsTest.java
+        │   ├── Test.java
+        │   └── User.java
+        ├── pattern/
+        │   └── creational/
+        │       ├── Singleton.java
+        │       └── TestProtect.java
+        └── practice/
+            ├── ArrayTest.java
+            ├── ImpexCreation.java
+            ├── MapFlatMapPractice.java
+            ├── ParenthesisExample.java
+            ├── PartitioningPractice.java
+            ├── Practice2Java8.java
+            ├── Question2.java
+            ├── ReductionPractice.java
+            ├── Test.java
+            └── TreePrinter.java
+```
+
+## 4) File-by-file breakdown
+
+### Root `src/`
+
+- `Main.java`
+  - Minimal Java entry-point sanity check (`Hello, World!`).
+- `EagerSingleton.java`
+  - Eager singleton initialization pattern using a static final instance.
+- `SortCities.java`
+  - Sorting a `Map<String, Integer>` by value and key using streams.
+  - Includes helpers for ascending/descending and filtering by minimum distance.
+
+### Package `com.hybrs`
+
+- `com/hybrs/Bank.java`
+  - Constructor practice, deposit/withdraw validation, and balance management.
+- `com/hybrs/GenericsTest.java`
+  - Demonstrates raw `List` usage and mixed-type insertion (why generics matter).
+- `com/hybrs/User.java`
+  - Encapsulation with fields/getters/setters and access modifier examples.
+- `com/hybrs/Test.java`
+  - Marker interface example (`Serializable`), overloading, modifier checks, and quick stream snippets.
+
+### Package `com.pattern.creational`
+
+- `com/pattern/creational/Singleton.java`
+  - Marker/interface placeholder for singleton-related pattern practice.
+- `com/pattern/creational/TestProtect.java`
+  - Inheritance-based access check for `protected` members across packages.
+
+### Package `com.practice`
+
+- `com/practice/ArrayTest.java`
+  - `int[]` to `List<Integer>`, filtering evens, distinct values, squaring, sorting, frequency maps, and reverse sorting.
+- `com/practice/MapFlatMapPractice.java`
+  - Focused `map`/`flatMap` exercises: uppercase conversion, word counts, nested-list flattening, CSV split flattening.
+- `com/practice/PartitioningPractice.java`
+  - `partitioningBy` and `groupingBy` patterns for even/odd, string length, adults/minors, and grouped counting.
+- `com/practice/ReductionPractice.java`
+  - `reduce`, `min`, `max`, counting tasks scaffold (some TODO/incomplete methods).
+- `com/practice/Practice2Java8.java`
+  - Mixed Java 8 interview-style stream problems (duplicates, counts, first element, sorting, chars).
+  - Several methods are intentionally TODO/incomplete for practice.
+- `com/practice/Question2.java`
+  - Finds odd-occurrence element using both `groupingBy` and XOR approach.
+- `com/practice/ParenthesisExample.java`
+  - Stack-based valid bracket/nesting checker.
+- `com/practice/Test.java`
+  - Sum of multiples of 3/5 using iterative and recursive methods.
+- `com/practice/TreePrinter.java`
+  - Recursive hierarchical tree printing from a parent->children map.
+- `com/practice/ImpexCreation.java`
+  - Large string preprocessing utility for formatting product codes into quoted/comma-separated output.
+
+## 5) What kind of practice this repo is best for
+
+- Java beginners moving from syntax to real coding patterns.
+- Stream API practice for coding interviews.
+- Understanding when to use `partitioningBy` vs `groupingBy`.
+- Recursion and data-structure fundamentals.
+- Access control behavior across packages and inheritance.
+
+## 6) How to run examples
+
+You can run classes individually (if they have a `main` method).
+
+```bash
+cd /Users/amit.k.bansal/Documents/TestJava
+javac src/Main.java
+java -cp src Main
+```
+
+Example for packaged class:
+
+```bash
+cd /Users/amit.k.bansal/Documents/TestJava
+javac src/com/practice/ParenthesisExample.java
+java -cp src com.practice.ParenthesisExample
+```
+
+To compile all Java files at once:
+
+```bash
+cd /Users/amit.k.bansal/Documents/TestJava
+javac $(find src -name "*.java")
+```
+
+## 7) Current state and notes
+
+- This is a practice sandbox, not a production app.
+- Some classes are complete and runnable immediately.
+- Some classes intentionally contain TODOs/incomplete methods for learning.
+- Some files include exploratory code/comments and multiple alternative approaches.
+
+## 8) Suggested next practice steps
+
+1. Complete TODO methods in `com/practice/ReductionPractice.java`.
+2. Complete TODO methods in `com/practice/Practice2Java8.java`.
+3. Refactor raw types to generics (e.g., `Map list2`, raw `List`).
+4. Add small JUnit tests for each practice class.
+5. Split utility-heavy classes (like `ImpexCreation`) into reusable methods.
+
