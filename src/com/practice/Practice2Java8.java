@@ -57,12 +57,19 @@ public class Practice2Java8 {
     public static void printEvenNumbers(List<Integer> list) {
         // TODO print event numbers.
         list.stream().filter(n-> n%2==0).forEach(e-> System.out.println(e));
+        //or
+        list.stream().filter(n-> n%2==0).forEach(System.out::println);
+
+        //or
+
+
+
     }
 
     // 2
     public static void printNumbersStartingWithOne(List<Integer> list) {
         // TODO
-        list.stream().map(e-> e+"").filter(n-> n.startsWith("1")).forEach(System.out::println);
+        list.stream().map(e-> e.toString()).filter(n-> n.startsWith("1")).map(Integer::parseInt).forEach(System.out::println);
 
         //or
         list.stream().filter(n-> n.toString().startsWith("1")).forEach(System.out::println);
@@ -165,7 +172,7 @@ public class Practice2Java8 {
     // 7
     public static void printFirstNonRepeated(String input) {
         // TODO
-        Character.toChars(input.toString().chars().
+        Character.toChars(input.chars().
                 filter(c-> input.indexOf(c)== input.lastIndexOf(c)).findFirst().orElse(-1));
         //or
         input.chars().filter(c-> input.indexOf(c)== input.lastIndexOf(c)).
@@ -178,31 +185,68 @@ public class Practice2Java8 {
     // 8
     public static void printFirstRepeated(String input) {
         // TODO
+        input.chars().filter(c-> input.indexOf(c)!=input.indexOf(c)).findFirst().ifPresent(System.out::println);
     }
 
     // 9
     public static void printSorted(List<Integer> list) {
         // TODO
+        list.stream().sorted().forEach(System.out::println);
+        //or
+        list.stream().sorted(Comparator.naturalOrder()).forEach(System.out::println);
+        //or
+        list.stream().sorted((a,b)-> a.compareTo(b)).forEach(System.out::println);
     }
 
     // 10
     public static void printSortedDesc(List<Integer> list) {
         // TODO
+        list.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+//or
+        list.stream().sorted((a,b)-> b.compareTo(a)).forEach(System.out::println);
+        //or
+        list.stream().sorted(Comparator.comparingInt(Integer::intValue).reversed()).forEach(System.out::println);
+
+
     }
 
     // 11
     public static boolean containsDuplicate(List<Integer> list) {
         // TODO
+            Set<Integer> seen = new HashSet<>();
+            list.stream().filter(n -> !seen.add(n)).findAny().ifPresent(n -> System.out.println("Duplicate found: " + n));
+
+            //or
+            Map<Integer, Long> frequencyMap = list.stream()
+                    .collect(Collectors.groupingBy(n -> n, Collectors.counting()));
+            frequencyMap.entrySet().stream().filter(e -> e.getValue() > 1).findAny()
+                    .ifPresent(e -> System.out.println("Duplicate found:" + e.getKey()));
+
         return false;
     }
 
     // 12
     public static void printCharCount(String input) {
         // TODO
+        input.length();
+        //or
+        input.chars().count();
+        //or
+        input.chars().mapToObj(c -> (char) c).
+                collect(Collectors.groupingBy(c -> c, Collectors.counting())).
+                forEach((c, count) -> System.out.println(c + ": " + count));
+
     }
 
     // 13
     public static void printNamesCount(List<String> names) {
         // TODO
+        names.stream().collect(Collectors.groupingBy(n -> n, Collectors.counting())).
+                forEach((name, count) -> System.out.println(name + ": " + count));
+        //or
+        Map<String, Long> frequencyMap = names.stream()
+                .collect(Collectors.groupingBy(n -> n, Collectors.counting()));
+        frequencyMap.forEach((name, count) -> System.out.println(name + ": " + count));
+
     }
 }

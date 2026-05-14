@@ -9,7 +9,9 @@ public class Question2 {
 
     public static void main(String[] args) {
         int[] arr = {9,3,9,3,9,7,9};
-        Optional<Integer> val= Arrays.stream(arr).boxed().collect(Collectors.groupingBy(n->n, Collectors.counting())).entrySet().stream().filter(e-> e.getValue()%2==1).map(Map.Entry::getKey).findFirst();
+        Optional<Integer> val= Arrays.stream(arr).boxed().
+                collect(Collectors.groupingBy(n->n, Collectors.counting())).entrySet()
+                .stream().filter(e-> e.getValue()%2==1).map(Map.Entry::getKey).findFirst();
 
         System.out.println("odd occurance: " + val);
 
@@ -23,7 +25,7 @@ public class Question2 {
      * ------
      *   0110 → 6
      *
-     *   When flags are smae: then result is 0, otherwise 1.
+     *   When flags are same: then result is 0, otherwise 1.
      *   Same thing twice = OFF (cancelled)
      * Different things = ON (kept)
      *

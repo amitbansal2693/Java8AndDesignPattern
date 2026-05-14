@@ -14,11 +14,12 @@ public class PartitioningPractice {
         Map<Boolean, List<Integer>> list;
         list=numbers.stream().collect(Collectors.partitioningBy(n -> n % 2 == 0));
         System.out.println(list);
+        numbers.parallelStream();
+
         //how i can use groupingBy to do partitioning. write here
         Map list2 = numbers.stream().collect(Collectors.groupingBy(n -> n % 2 == 0? "EVEN" : "ODD"));
         System.out.println(list2);
-        return numbers.stream()
-                .collect(Collectors.partitioningBy(n -> n % 2 == 0));
+        return numbers.stream().collect(Collectors.partitioningBy(n -> n % 2 == 0));
     }
 
     /**

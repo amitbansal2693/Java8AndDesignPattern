@@ -57,7 +57,9 @@ TestJava/
             ├── PartitioningPractice.java
             ├── Practice2Java8.java
             ├── Question2.java
+            ├── ReduceFunctionExamples.java
             ├── ReductionPractice.java
+            ├── StreamParallelExamples.java
             ├── Test.java
             └── TreePrinter.java
 ```
@@ -100,8 +102,14 @@ TestJava/
   - Focused `map`/`flatMap` exercises: uppercase conversion, word counts, nested-list flattening, CSV split flattening.
 - `com/practice/PartitioningPractice.java`
   - `partitioningBy` and `groupingBy` patterns for even/odd, string length, adults/minors, and grouped counting.
+- `com/practice/ReduceFunctionExamples.java`
+  - A dedicated mid-to-advanced practice sheet with 20 unsolved method prompts.
+  - Covers `reduce`, `groupingBy`, nested grouping, partitioning, summary statistics, and downstream collectors.
+  - Includes ready-made sample inputs (`sampleNumbers()`, `sampleWords()`, `sampleEmployees()`, `sampleStudents()`, `sampleOrders()`) so you can call each method directly while practicing.
 - `com/practice/ReductionPractice.java`
   - `reduce`, `min`, `max`, counting tasks scaffold (some TODO/incomplete methods).
+- `com/practice/StreamParallelExamples.java`
+  - Parallel stream experimentation and comparison-oriented practice.
 - `com/practice/Practice2Java8.java`
   - Mixed Java 8 interview-style stream problems (duplicates, counts, first element, sorting, chars).
   - Several methods are intentionally TODO/incomplete for practice.
@@ -155,12 +163,14 @@ javac $(find src -name "*.java")
 - Some classes are complete and runnable immediately.
 - Some classes intentionally contain TODOs/incomplete methods for learning.
 - Some files include exploratory code/comments and multiple alternative approaches.
+- `ReduceFunctionExamples.java` is now a good next step if you want 15-20 interview-style stream/reduce problems with sample arguments already prepared.
 
 ## 8) Suggested next practice steps
 
-1. Complete TODO methods in `com/practice/ReductionPractice.java`.
-2. Complete TODO methods in `com/practice/Practice2Java8.java`.
-3. Refactor raw types to generics (e.g., `Map list2`, raw `List`).
-4. Add small JUnit tests for each practice class.
-5. Split utility-heavy classes (like `ImpexCreation`) into reusable methods.
+1. Complete the 20 challenge methods in `com/practice/ReduceFunctionExamples.java`.
+2. Complete TODO methods in `com/practice/ReductionPractice.java`.
+3. Complete TODO methods in `com/practice/Practice2Java8.java`.
+4. Refactor raw types to generics (e.g., `Map list2`, raw `List`).
+5. Add small JUnit tests for each practice class.
+6. Split utility-heavy classes (like `ImpexCreation`) into reusable methods.
 

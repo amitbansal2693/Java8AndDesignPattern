@@ -12,6 +12,12 @@ public class ArrayTest {
      * 1️⃣ Convert the given int[] array to List<Integer>
      */
     public static List<Integer> arrayToList(int[] numbers) {
+        //we have primitive int array.
+        /**
+         * 1. convert primitve to wrapper Integer.
+         * 2. Boxed() funciton internally ises mapToObject()
+         */
+      //  return  IntStream.of(numbers).mapToObj(Integer::valueOf).toList();
         return IntStream.of(numbers).boxed().collect(Collectors.toList());
     }
 
