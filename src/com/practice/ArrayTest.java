@@ -25,6 +25,9 @@ public class ArrayTest {
      * 2️⃣ Convert array to List<Integer>, include only EVEN numbers
      */
     public static List<Integer> arrayToEvenList(int[] numbers) {
+        //int[] -> List<Integer> using boxed
+        Arrays.stream(numbers).boxed().filter(i-> i%2 ==0).toList();
+
         return IntStream.of(numbers)
                 .filter(i -> i % 2 == 0)
                 .boxed()
@@ -35,6 +38,8 @@ public class ArrayTest {
      * 3️⃣ Remove duplicates and return List<Integer>
      */
     public static List<Integer> distinctElements(int[] numbers) {
+        Arrays.stream(numbers).distinct().boxed().toList();
+
         return IntStream.of(numbers)
                 .distinct()
                 .boxed()
@@ -45,6 +50,8 @@ public class ArrayTest {
      * 4️⃣ Square each element and return as List<Integer>
      */
     public static List<Integer> squareElements(int[] numbers) {
+        Arrays.stream(numbers).boxed().map(i->Math.pow(i,i)).toList();
+
         return IntStream.of(numbers)
                 .map(n -> n * n)
                 .boxed()
@@ -55,6 +62,7 @@ public class ArrayTest {
      * 5️⃣ Sort in ASCENDING order
      */
     public static List<Integer> sortAscending(int[] numbers) {
+        Arrays.stream(numbers).boxed().sorted().toList();
         return IntStream.of(numbers)
                 .sorted()
                 .boxed()
@@ -65,6 +73,7 @@ public class ArrayTest {
      * 6️⃣ Convert array to list, then back to int[]
      */
     public static int[] listBackToArray(int[] numbers) {
+        Arrays.stream(numbers).boxed().mapToInt(Integer::intValue).toArray();
         List<Integer> list = IntStream.of(numbers)
                 .boxed()
                 .collect(Collectors.toList());
@@ -78,6 +87,8 @@ public class ArrayTest {
      * 7️⃣ Frequency Map: number → count
      */
     public static Map<Integer, Long> frequencyMap(int[] numbers) {
+        Arrays.stream(numbers).boxed().collect(Collectors.groupingBy(kye->kye, Collectors.counting()));
+
         return IntStream.of(numbers)
                 .boxed()
                 .collect(Collectors.groupingBy(i -> i, Collectors.counting()));
@@ -87,6 +98,8 @@ public class ArrayTest {
      * 8️⃣ Numbers > 4 in DESC order
      */
     public static List<Integer> greaterThanFourDesc(int[] numbers) {
+        Arrays.stream(numbers).boxed().filter(n-> n>4).toList();
+
         return IntStream.of(numbers)
                 .boxed()
                 .filter(i -> i > 4)

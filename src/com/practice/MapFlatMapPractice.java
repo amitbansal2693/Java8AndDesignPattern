@@ -26,7 +26,7 @@ public class MapFlatMapPractice {
         // can use map(n-> n.length())
         return sentences.stream()
                 .map(s -> s.split(" ").length)
-                .toList();
+                .collect(Collectors.toList());
 
        // return sentences.stream().map(String::length).toList();
     }

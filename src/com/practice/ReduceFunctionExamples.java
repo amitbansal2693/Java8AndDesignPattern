@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  *  reduce() in Java – Deep Dive (Hierarchy Style). Returns single output Optional<T>
@@ -36,27 +37,29 @@ public class ReduceFunctionExamples {
 
     /** Sample call: productOfDistinctPositiveNumbers(sampleNumbers()) */
     public static int productOfDistinctPositiveNumbers(List<Integer> numbers) {
-        throw new UnsupportedOperationException("TODO: solve using filter + distinct + reduce");
+        return numbers.stream().dropWhile(e-> e<0).distinct().reduce(1,(a,b)->a*b);
     }
 
     /** Sample call: longestWord(sampleWords()) */
     public static Optional<String> longestWord(List<String> words) {
-        throw new UnsupportedOperationException("TODO: solve using reduce");
+       return words.stream().reduce((a,b)->a.length()>b.length()?a:b);
     }
 
     /** Sample call: joinUniqueSortedWords(sampleWords()) */
     public static String joinUniqueSortedWords(List<String> words) {
-        throw new UnsupportedOperationException("TODO: solve using distinct + sorted + joining");
+        return words.stream().distinct().collect(Collectors.joining(","));
     }
 
     /** Sample call: wordFrequency(sampleWords()) */
     public static Map<String, Long> wordFrequency(List<String> words) {
-        throw new UnsupportedOperationException("TODO: solve using groupingBy + counting");
+       return words.stream().collect((String k,Long v)->k,v);
     }
 
     /** Sample call: characterFrequency(sampleSentence()) */
     public static Map<Character, Long> characterFrequency(String input) {
-        throw new UnsupportedOperationException("TODO: solve using chars + groupingBy");
+
+        return input.chars().collect(Collectors.toMap(k, v.length));
+
     }
 
     /** Sample call: groupWordsByLength(sampleWords()) */

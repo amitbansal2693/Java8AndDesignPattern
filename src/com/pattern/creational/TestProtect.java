@@ -8,5 +8,7 @@ public class TestProtect extends User {
 
         String a=protectName;
         //why protected is not accessible here
+        var var=2;
+        System.out.println(var);
     }
 }

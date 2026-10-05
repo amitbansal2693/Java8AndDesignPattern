@@ -12,6 +12,7 @@ public class PartitioningPractice {
      */
     public static Map<Boolean, List<Integer>> partitionEvenOdd(List<Integer> numbers) {
         Map<Boolean, List<Integer>> list;
+        numbers.stream().collect(Collectors.partitioningBy(n->n%2==0));
         list=numbers.stream().collect(Collectors.partitioningBy(n -> n % 2 == 0));
         System.out.println(list);
         numbers.parallelStream();

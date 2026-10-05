@@ -152,7 +152,7 @@ public class ElementsPairing {
 
 
     // ================================================================
-    // 2. Find Pairs with Given Sum
+    // 2. Find Pairs with Given Sum | Sorted array. use pointer
     // ================================================================
     /*
      * Problem:

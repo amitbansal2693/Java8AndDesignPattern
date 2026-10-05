@@ -91,8 +91,10 @@ public class Practice2Java8 {
     // 3
     public static void printDuplicateElements(List<Integer> list) {
         // TODO
+        list.stream().collect(Collectors.groupingBy(n->n, Collectors.counting()))
+                .keySet().stream().filter(e->e>1).toList();
         Set<Integer> seen = new HashSet<>();
-        list.stream().filter(n -> seen.add(n) == false).forEach(System.out::println);
+        list.stream().filter(n -> seen.add(n) == false).forEach(System.out::println);//seen.add(n) returns false when already exists
 
         //or
         Map<Integer, Integer> frequencyMap = new HashMap<>();
@@ -115,6 +117,7 @@ public class Practice2Java8 {
     // 4
     public static void printFirstElement(List<Integer> list) {
         // TODO
+        System.out.println(list.getFirst());
         System.out.println(list.stream().findFirst().get());
 
         list.stream().limit(1).forEach(System.out::println);
@@ -172,6 +175,8 @@ public class Practice2Java8 {
     // 7
     public static void printFirstNonRepeated(String input) {
         // TODO
+        /// both first and last index must be same
+        //can use seen array, as sson as seen return true, then found
         Character.toChars(input.chars().
                 filter(c-> input.indexOf(c)== input.lastIndexOf(c)).findFirst().orElse(-1));
         //or
