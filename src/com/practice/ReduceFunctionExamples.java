@@ -52,14 +52,15 @@ public class ReduceFunctionExamples {
 
     /** Sample call: wordFrequency(sampleWords()) */
     public static Map<String, Long> wordFrequency(List<String> words) {
-       return words.stream().collect((String k,Long v)->k,v);
+      // return words.stream().collect((String k,Long v)->k,v);
+        return null;
     }
 
     /** Sample call: characterFrequency(sampleSentence()) */
     public static Map<Character, Long> characterFrequency(String input) {
 
-        return input.chars().collect(Collectors.toMap(k, v.length));
-
+     //   return input.chars().collect(Collectors.toMap(k, v.length));
+return null;
     }
 
     /** Sample call: groupWordsByLength(sampleWords()) */

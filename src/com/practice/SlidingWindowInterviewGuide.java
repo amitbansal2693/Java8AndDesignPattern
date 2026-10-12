@@ -469,7 +469,7 @@ public class SlidingWindowInterviewGuide {
                                           int target) {
 
         System.out.println("\nFOR LOOP SOLUTION:");
-        //Lest 3 elements will be processed togethor. thus size-k+1 is the last index to start the window.
+        //Last 3 elements will be processed togethor. thus size-k+1 is the last index to start the window.
 
         for (int i = 0; i <= list.size() - k; i++) {
             int sum = 0;

@@ -37,7 +37,7 @@ public class StringsPractice {
                 }
                 set.remove(ch);
 
-                System.out.println("Adter Remove: "+result + "set "+set.toString());
+                System.out.println("After Remove: "+result + "set "+set.toString());
             }
             set.add(ch);
             System.out.println("before add: result "+result + "set "+set.toString()+ "\n");

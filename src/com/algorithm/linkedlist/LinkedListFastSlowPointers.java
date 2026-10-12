@@ -163,6 +163,7 @@ public class LinkedListFastSlowPointers {
         System.out.println("Detecting cycle:");
         int step = 0;
 
+        //odd number + plus number.
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;

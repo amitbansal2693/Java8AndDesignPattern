@@ -74,7 +74,7 @@ public class SortCities {
         printEntries(sorted);
     }
 
-    private static void sortByCityName() {
+    private void sortByCityName() {
         List<Entry<String, Integer>> sorted = cityDistances.entrySet()
                 .stream()
                 .sorted(Entry.comparingByKey())
